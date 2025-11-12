@@ -6,10 +6,10 @@ import java.util.Objects;
 public class Equipo {
     private Integer id;
     private String nombreEquipo;
-    private ArrayList<Jugador> participantes;
+    private ArrayList<Participante> participantes;
     private Integer puntajeTotal;
 
-    public Equipo(Integer id, String nombreEquipo, ArrayList<Jugador> participantes) {
+    public Equipo(Integer id, String nombreEquipo, ArrayList<Participante> participantes) {
         this.id = id;
         this.nombreEquipo = nombreEquipo;
         this.participantes = participantes;
@@ -19,14 +19,14 @@ public class Equipo {
     public Equipo(Integer id, String nombreEquipo) {
         this.id = id;
         this.nombreEquipo = nombreEquipo;
-        this.participantes = new ArrayList<Jugador>();
+        this.participantes = new ArrayList<Participante>();
         this.puntajeTotal = obtenerPuntajeTotal();
     }
 
     private Integer obtenerPuntajeTotal(){
         Integer sum = 0;
 
-        for(Jugador j : participantes){
+        for(Participante j : participantes){
             sum += j.getPuntaje();
         }
 
@@ -49,11 +49,11 @@ public class Equipo {
         this.nombreEquipo = nombreEquipo;
     }
 
-    public ArrayList<Jugador> getParticipantes() {
+    public ArrayList<Participante> getParticipantes() {
         return participantes;
     }
 
-    public void setParticipantes(ArrayList<Jugador> participantes) {
+    public void setParticipantes(ArrayList<Participante> participantes) {
         this.participantes = participantes;
     }
 
@@ -65,11 +65,11 @@ public class Equipo {
         this.puntajeTotal = puntajeTotal;
     }
 
-    public boolean agregarParticipante(Jugador j){
+    public boolean agregarParticipante(Participante j){
         return participantes.add(j);
     }
 
-    public boolean eliminarParticipante(Jugador j){
+    public boolean eliminarParticipante(Participante j){
         return participantes.remove(j);
     }
 
