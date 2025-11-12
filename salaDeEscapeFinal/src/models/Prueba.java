@@ -7,24 +7,19 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Prueba implements Listador<Pista> {
-    public static int idGeneral=-1;
     private Integer id;
     private String nombre;
     private String descripcion;
     private TipoDePrueba tipo;
     private ArrayList<Pista> pistas;
-    private String respuesta;
 
-    public Prueba(String nombre, String descripcion, TipoDePrueba tipo,String respuesta) {
+    public Prueba(String nombre, String descripcion, TipoDePrueba tipo, Integer id) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tipo = tipo;
-        this.respuesta=respuesta;
-        idGeneral++;
-        this.id = idGeneral;
+        this.id = id;
     }
 
-    /*
     public Prueba(Integer id) {
         this.nombre = "";
         this.descripcion = "";
@@ -37,7 +32,7 @@ public class Prueba implements Listador<Pista> {
         this.descripcion = "";
         this.tipo = TipoDePrueba.LOGICA;
         this.id = -1;
-    }*/
+    }
 
     public Integer getId() {
         return id;
@@ -71,14 +66,6 @@ public class Prueba implements Listador<Pista> {
         this.tipo = tipo;
     }
 
-    public String getRespuesta() {
-        return respuesta;
-    }
-
-    public void setRespuesta(String respuesta) {
-        this.respuesta = respuesta;
-    }
-
     @Override
     public boolean agregar(Pista p){
         return pistas.add(p);
@@ -87,6 +74,16 @@ public class Prueba implements Listador<Pista> {
     @Override
     public boolean eliminar(Pista p){
         return pistas.remove(p);
+    }
+
+    @Override
+    public boolean buscar(Pista p){
+        for(Pista b : pistas){
+            if(b.equals(p)){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -114,11 +111,11 @@ public class Prueba implements Listador<Pista> {
     @Override
     public String toString() {
         return "Prueba{" +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", tipo=" + tipo +
+                ", pistas=" + pistas +
                 '}';
     }
-
-
 }
