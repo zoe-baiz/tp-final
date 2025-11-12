@@ -1,38 +1,40 @@
 package models;
 
-import java.util.Scanner;
+import interfaces.IContrasenia;
 
-public class Jugador extends Persona{
-    private String nombre;
-    private int cantVidas = 3;
-    private int puntaje = 0;
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_RED = "\u001B[31m";
+public class Jugador extends Persona implements IContrasenia {
+    private String contrasenia;
+    private Integer cantVidas = 3;
+    private Integer puntaje = 0;
+    private Integer idEquipo;
 
+    public Jugador(Integer id, String nombre, String contrasenia, Integer idEquipo) {
+        super(id, nombre);
+        this.contrasenia = contrasenia;
+        this.idEquipo = idEquipo;
+    }
 
-    public Jugador(Integer id, String nombre) {
+    public Jugador(Integer id) {
         super(id);
-        this.nombre = nombre;
+        this.contrasenia = "";
+        this.idEquipo = -1;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Jugador() {
+        this.contrasenia = "";
+        this.idEquipo = -1;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getCantVidas() {
+    public Integer getCantVidas() {
         return cantVidas;
     }
 
     private void setCantVidas(Integer cantVidas) {
         this.cantVidas = cantVidas;
+
     }
 
-    public int getPuntaje() {
+    public Integer getPuntaje() {
         return puntaje;
     }
 
@@ -40,22 +42,33 @@ public class Jugador extends Persona{
         this.puntaje = puntaje;
     }
 
-    public boolean responderPrueba(Jugador j,Prueba p){
-        Scanner sc=new Scanner(System.in);
-        System.out.println(ANSI_RESET +p.toString()+ANSI_RESET );
-        System.out.println("Respuesta prueba: ");
-        String respuesta=sc.nextLine();
-        if(respuesta.equals(p.getRespuesta())){
-            System.out.println(ANSI_GREEN+"Bien"+ANSI_GREEN);
-            j.puntaje += 100;
-            return true;
-        }else{
-            System.out.println(ANSI_RED+"Mal"+ANSI_RED);
-            j.cantVidas--;
-        }
-
-
-        return false;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public Integer getIdEquipo() {
+        return idEquipo;
+    }
+
+    public void setIdEquipo(Integer idEquipo) {
+        this.idEquipo = idEquipo;
+    }
+
+    public void perderVida(){
+        this.cantVidas--;
+    }
+
+    public void ganarPuntos(int puntos){
+        this.puntaje += puntos;
+    }
+
+    @Override
+    public boolean autenticar(String usuario, String contrasenia) {
+        if(usuario.equals(this.getNombre()) && contrasenia.equals(this.contrasenia)) return true;
+        return false;
+    }
 }

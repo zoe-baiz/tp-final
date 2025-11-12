@@ -1,16 +1,44 @@
 package models;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class Equipo {
-    public String nombreEquipo;
-    public String contraseña;
-    HashSet<Jugador> jugadores;
+    private Integer id;
+    private String nombreEquipo;
+    private ArrayList<Jugador> participantes;
+    private Integer puntajeTotal;
 
-    public Equipo(String nombreEquipo,String contraseña) {
-        this.nombreEquipo=nombreEquipo;
-        this.contraseña=contraseña;
-        this.jugadores = new HashSet<>();
+    public Equipo(Integer id, String nombreEquipo, ArrayList<Jugador> participantes) {
+        this.id = id;
+        this.nombreEquipo = nombreEquipo;
+        this.participantes = participantes;
+        this.puntajeTotal = obtenerPuntajeTotal();
+    }
+
+    public Equipo(Integer id, String nombreEquipo) {
+        this.id = id;
+        this.nombreEquipo = nombreEquipo;
+        this.participantes = new ArrayList<Jugador>();
+        this.puntajeTotal = obtenerPuntajeTotal();
+    }
+
+    private Integer obtenerPuntajeTotal(){
+        Integer sum = 0;
+
+        for(Jugador j : participantes){
+            sum += j.getPuntaje();
+        }
+
+        return sum;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombreEquipo() {
@@ -21,22 +49,53 @@ public class Equipo {
         this.nombreEquipo = nombreEquipo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public ArrayList<Jugador> getParticipantes() {
+        return participantes;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setParticipantes(ArrayList<Jugador> participantes) {
+        this.participantes = participantes;
     }
 
-    public HashSet<Jugador> getJugadores() {
-        return jugadores;
+    public Integer getPuntajeTotal() {
+        return puntajeTotal;
+    }
+
+    public void setPuntajeTotal(Integer puntajeTotal) {
+        this.puntajeTotal = puntajeTotal;
+    }
+
+    public boolean agregarParticipante(Jugador j){
+        return participantes.add(j);
+    }
+
+    public boolean eliminarParticipante(Jugador j){
+        return participantes.remove(j);
+    }
+
+    public void actualizarPuntaje(Integer puntos){
+        puntajeTotal = obtenerPuntajeTotal();
+        puntajeTotal += puntos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Equipo equipo)) return false;
+        return Objects.equals(id, equipo.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 
     @Override
     public String toString() {
         return "Equipo{" +
-                "jugadores=" + jugadores +
+                "id=" + id +
+                ", nombreEquipo='" + nombreEquipo + '\'' +
+                ", participantes=" + participantes +
+                ", puntajeTotal=" + puntajeTotal +
                 '}';
     }
 }

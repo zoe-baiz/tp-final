@@ -15,7 +15,6 @@ public class Sala implements Listador<Prueba> {
     public Sala(String nombre, String historia) {
         this.nombre = nombre;
         this.historia = historia;
-        this.pruebas=new ArrayList<>();
         idGeneral = idGeneral++;
         this.id = idGeneral;
     }
@@ -53,10 +52,7 @@ public class Sala implements Listador<Prueba> {
 
     @Override
     public boolean agregar(Prueba p){
-        if(p!=null){
-            return pruebas.add(p);
-        }
-        return false;
+        return pruebas.add(p);
     }
 
     @Override
@@ -64,14 +60,25 @@ public class Sala implements Listador<Prueba> {
         return pruebas.remove(p);
     }
 
-
     @Override
-    public <T> T buscar(Integer id) {
-        return null;
+    public boolean buscar(Prueba p){
+        for(Prueba b : pruebas){
+            if(b.equals(p)){
+                return true;
+            }
+        }
+        return false;
     }
 
-    public ArrayList<Prueba> getPruebas() {
-        return pruebas;
+    @Override
+    public Prueba buscar(Integer id) {
+        Prueba p = new Prueba(id);
+        for(Prueba b : pruebas){
+            if(b.equals(p)){
+                return b;
+            }
+        }
+        return null;
     }
 
     @Override
