@@ -1,8 +1,12 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 package models;
 
+import interfaces.IToJson;
 import java.util.Objects;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public class Pista {
+public class Pista implements IToJson<Pista> {
     private Integer id;
     private String texto;
 
@@ -22,7 +26,7 @@ public class Pista {
     }
 
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -30,29 +34,39 @@ public class Pista {
     }
 
     public String getTexto() {
-        return texto;
+        return this.texto;
     }
 
     public void setTexto(String texto) {
         this.texto = texto;
     }
 
-    @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Pista pista)) return false;
-        return Objects.equals(id, pista.id);
+        if (o instanceof Pista pista) {
+            return Objects.equals(this.id, pista.id);
+        } else {
+            return false;
+        }
     }
 
-    @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(this.id);
     }
 
-    @Override
     public String toString() {
-        return "Pista{" +
-                "id=" + id +
-                ", texto='" + texto + '\'' +
-                '}';
+        return "Pista{id=" + this.id + ", texto='" + this.texto + "'}";
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+
+        try {
+            json.put("id", this.id);
+            json.put("texto", this.texto);
+        } catch (JSONException var3) {
+            var3.printStackTrace();
+        }
+
+        return json;
     }
 }

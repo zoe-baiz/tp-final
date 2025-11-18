@@ -1,3 +1,4 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 package models;
 
 import java.util.Objects;
@@ -22,21 +23,22 @@ public abstract class Persona {
     }
 
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
-    @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Persona persona)) return false;
-        return Objects.equals(id, persona.id);
+        if (o instanceof Persona persona) {
+            return Objects.equals(this.id, persona.id);
+        } else {
+            return false;
+        }
     }
 
-    @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(this.id);
     }
 }

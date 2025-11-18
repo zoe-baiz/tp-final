@@ -1,40 +1,32 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 package models;
 
+import interfaces.IToJson;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Objects;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public class Equipo {
+public class Equipo implements IToJson {
     private Integer id;
     private String nombreEquipo;
     private ArrayList<Participante> participantes;
     private Integer puntajeTotal;
 
-    public Equipo(Integer id, String nombreEquipo, ArrayList<Participante> participantes) {
-        this.id = id;
-        this.nombreEquipo = nombreEquipo;
-        this.participantes = participantes;
-        this.puntajeTotal = obtenerPuntajeTotal();
-    }
-
     public Equipo(Integer id, String nombreEquipo) {
         this.id = id;
         this.nombreEquipo = nombreEquipo;
-        this.participantes = new ArrayList<Participante>();
-        this.puntajeTotal = obtenerPuntajeTotal();
+        this.participantes = new ArrayList();
     }
 
-    private Integer obtenerPuntajeTotal(){
-        Integer sum = 0;
-
-        for(Participante j : participantes){
-            sum += j.getPuntaje();
-        }
-
-        return sum;
+    public boolean agregar(Participante p) {
+        return p != null ? this.participantes.add(p) : false;
     }
 
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -42,7 +34,7 @@ public class Equipo {
     }
 
     public String getNombreEquipo() {
-        return nombreEquipo;
+        return this.nombreEquipo;
     }
 
     public void setNombreEquipo(String nombreEquipo) {
@@ -50,7 +42,7 @@ public class Equipo {
     }
 
     public ArrayList<Participante> getParticipantes() {
-        return participantes;
+        return this.participantes;
     }
 
     public void setParticipantes(ArrayList<Participante> participantes) {
@@ -58,44 +50,54 @@ public class Equipo {
     }
 
     public Integer getPuntajeTotal() {
-        return puntajeTotal;
+        return this.puntajeTotal;
     }
 
     public void setPuntajeTotal(Integer puntajeTotal) {
         this.puntajeTotal = puntajeTotal;
     }
 
-    public boolean agregarParticipante(Participante j){
-        return participantes.add(j);
+    public boolean eliminarParticipante(Participante j) {
+        return this.participantes.remove(j);
     }
 
-    public boolean eliminarParticipante(Participante j){
-        return participantes.remove(j);
-    }
-
-    public void actualizarPuntaje(Integer puntos){
-        puntajeTotal = obtenerPuntajeTotal();
-        puntajeTotal += puntos;
-    }
-
-    @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Equipo equipo)) return false;
-        return Objects.equals(id, equipo.id);
+        if (o instanceof Equipo equipo) {
+            return Objects.equals(this.id, equipo.id);
+        } else {
+            return false;
+        }
     }
 
-    @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(this.id);
     }
 
-    @Override
     public String toString() {
-        return "Equipo{" +
-                "id=" + id +
-                ", nombreEquipo='" + nombreEquipo + '\'' +
-                ", participantes=" + participantes +
-                ", puntajeTotal=" + puntajeTotal +
-                '}';
+        Integer var10000 = this.id;
+        return "Equipo{id=" + var10000 + ", nombreEquipo='" + this.nombreEquipo + "', participantes=" + String.valueOf(this.participantes) + ", puntajeTotal=" + this.puntajeTotal + "}";
+    }
+
+    public JSONObject toJson() {
+        JSONObject objEquipo = new JSONObject();
+        JSONArray arrayParticipantes = new JSONArray();
+
+        try {
+            objEquipo.put("id", this.getId());
+            objEquipo.put("nombreEquipo", this.getNombreEquipo());
+            objEquipo.put("puntajeTotal", this.getPuntajeTotal());
+            Iterator var3 = this.participantes.iterator();
+
+            while(var3.hasNext()) {
+                Participante p = (Participante)var3.next();
+                arrayParticipantes.put(p.toJson());
+            }
+
+            objEquipo.put("participantes", arrayParticipantes);
+        } catch (JSONException var5) {
+            var5.printStackTrace();
+        }
+
+        return objEquipo;
     }
 }
