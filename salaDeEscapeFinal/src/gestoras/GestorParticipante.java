@@ -1,10 +1,10 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 package gestoras;
 
 import exceptions.ParticipanteNoExisteException;
 import exceptions.SinPistasException;
-import models.Participante;
-
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GestorParticipante {
     private Integer idEquipo;
@@ -18,7 +18,7 @@ public class GestorParticipante {
     }
 
     public Integer getIdEquipo() {
-        return idEquipo;
+        return this.idEquipo;
     }
 
     public void setIdEquipo(Integer idEquipo) {
@@ -26,7 +26,7 @@ public class GestorParticipante {
     }
 
     public Integer getIdParticipante() {
-        return idParticipante;
+        return this.idParticipante;
     }
 
     public void setIdParticipante(Integer idParticipante) {
@@ -34,7 +34,7 @@ public class GestorParticipante {
     }
 
     public Integer getCantPistas() {
-        return cantPistas;
+        return this.cantPistas;
     }
 
     public void setCantPistas(Integer cantPistas) {
@@ -42,7 +42,7 @@ public class GestorParticipante {
     }
 
     public Integer getPuntos() {
-        return puntos;
+        return this.puntos;
     }
 
     public void setPuntos(Integer puntos) {
@@ -50,12 +50,15 @@ public class GestorParticipante {
     }
 
     public void gestionarTrama() {
-        //no entendi diri
     }
 
     public void bajarPistas() throws SinPistasException {
-        if(this.cantPistas < 0) this.cantPistas--;
-        else throw new SinPistasException();
+        if (this.cantPistas < 0) {
+            Integer var1 = this.cantPistas;
+            this.cantPistas = this.cantPistas - 1;
+        } else {
+            throw new SinPistasException();
+        }
     }
 
     public void reiniciarPistas() {
@@ -63,18 +66,26 @@ public class GestorParticipante {
     }
 
     public void sumarPuntos(Integer puntos) {
-        this.puntos += puntos;
+        this.puntos = this.puntos + puntos;
     }
 
     public void reiniciarPuntos() {
         this.puntos = 0;
     }
 
-    public Participante elegirParticipante(ArrayList<Participante> lista) throws ParticipanteNoExisteException{
+    public Participante elegirParticipante(ArrayList<Participante> lista) throws ParticipanteNoExisteException {
         Participante buscado = new Participante(this.idParticipante);
+        Iterator var3 = lista.iterator();
 
-        for(Participante p : lista) if (buscado.equals(p)) return p;
+        Participante p;
+        do {
+            if (!var3.hasNext()) {
+                throw new ParticipanteNoExisteException();
+            }
 
-        throw new ParticipanteNoExisteException();
+            p = (Participante)var3.next();
+        } while(!buscado.equals(p));
+
+        return p;
     }
 }

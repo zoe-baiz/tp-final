@@ -1,3 +1,4 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 package models;
 
 public class Narrador {
@@ -8,14 +9,14 @@ public class Narrador {
     }
 
     public String getPersonaje() {
-        return personaje;
+        return this.personaje;
     }
 
     public void setPersonaje(String personaje) {
         this.personaje = personaje;
     }
 
-    public void reproducirDialogo(String lineaId){
-        System.out.print(personaje + ": " +lineaId);
+    public void reproducirDialogo(String lineaId) {
+        System.out.print(this.personaje + ": " + lineaId);
     }
 }

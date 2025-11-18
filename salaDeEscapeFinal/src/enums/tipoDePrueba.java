@@ -1,6 +1,6 @@
 package enums;
 
-public enum TipoDePrueba {
+public enum tipoDePrueba {
     LOGICA(1),
     CAOS(2),
     RECUERDO(3),
@@ -8,7 +8,7 @@ public enum TipoDePrueba {
 
     private int value;
 
-    TipoDePrueba(int value) {
+    tipoDePrueba(int value) {
         this.value = value;
     }
 
