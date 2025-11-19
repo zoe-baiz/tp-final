@@ -1,0 +1,37 @@
+[{
+    "puntaje": 0,
+    "equipo": {
+        "puntajeTotal": 0,
+        "nombreEquipo": "zic2",
+        "id": 2,
+        "participantes": [
+            {
+                "puntaje": 0,
+                "contrasenia": "i",
+                "cantVidas": 2,
+                "id": 1,
+                "nombre": "i",
+                "Estado": true
+            },
+            {
+                "puntaje": 0,
+                "contrasenia": "z",
+                "cantVidas": 3,
+                "id": 2,
+                "nombre": "z",
+                "Estado": true
+            },
+            {
+                "puntaje": 0,
+                "contrasenia": "c",
+                "cantVidas": 3,
+                "id": 3,
+                "nombre": "c",
+                "Estado": true
+            }
+        ]
+    },
+    "ISala": 0,
+    "cantVidas": 3,
+    "IPrueba": 1
+}]
