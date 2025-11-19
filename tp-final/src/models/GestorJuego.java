@@ -63,7 +63,6 @@ public class GestorJuego {
                     System.out.println("1 - Pedir pista ");
                     System.out.println("2 - Salir y Guardar Partida ");
                     System.out.println(sala.getPruebas(IPrueba).toString());
-
                     if (p.responder(sala.getPruebas(IPrueba)).equals("2")) {
                         estado.actualizarEstado(equipo, ISala, IPrueba, p.getCantVidas(), p.getPuntaje());
                         estado.guardarPartida(estado);
@@ -71,6 +70,7 @@ public class GestorJuego {
                         return;
                     }
                 }
+
                 IPrueba++;
             }
         }
@@ -101,7 +101,7 @@ public class GestorJuego {
             if (nombreEquipoGuardado.equals(nombreEquipo)) {
                 System.out.println("CARGANDO PARTIDA...");
 
-                // ---- Reconstruir equipo ----
+                //  Reconstruir equipo
                 int idEquipo = equipoInfo.getInt("id");
                 Equipo equipoCargado = new Equipo(nombreEquipoGuardado);
 
@@ -128,7 +128,7 @@ public class GestorJuego {
                 }
 
                 this.salas = salasCargadas;
-                // ---- Reconstruir estado ----
+                // volver al estadpo de juego
                 Estado estadoCargado = new Estado();
                 estadoCargado.actualizarEstado(
                         equipoCargado,
@@ -138,7 +138,7 @@ public class GestorJuego {
                         partidaObj.getInt("puntaje")
                 );
 
-                // ---- ACTUALIZAR OBJETO DEL JUEGO ----
+                // acrtualizar juego
                 this.equipo = equipoCargado;
                 this.estado = estadoCargado;
 

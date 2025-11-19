@@ -1,1 +1,175 @@
-{"salas":[{"pruebas":[{"descripcion":"wawawa","pistas":[],"tipo":"CAOS","id":1,"respuesta":"Respuesta","nombre":"pruebita1"},{"descripcion":"wawawa","pistas":[],"tipo":"LOGICA","id":2,"respuesta":"Respuesta","nombre":"pruebita2"},{"descripcion":"wawawa","pistas":[],"tipo":"CREATIVIDAD","id":3,"respuesta":"Respuesta","nombre":"pruebita3"}],"historia":"historia1","id":1,"nombre":"alguna sala"},{"pruebas":[],"historia":"historia2","id":2,"nombre":"alguna sala"},{"pruebas":[],"historia":"historia3","id":3,"nombre":"alguna sala"}]}
+{
+  "salas": {
+    "1": {
+      "id": 1,
+      "nombre": "Nivel 1: El Lóbulo Frontal - La Razón del Trauma",
+      "historia": "📖 Historia Clave (Voz: Nostalgia)\n\"Recuerdo la soberbia que la obligó a elegir el orden sobre la pasión. Análisis nació la noche que quemó todos sus dibujos. La clave de codificación es MURCIÉLAGO. Dejar ALPHASIA, nuestro hogar académico, a la edad de 28 años... ese fue el primer acto de traición. La junta directiva, tan fría como Análisis, se negó a financiar el proyecto. Para protegerse de la fragilidad, se puso el BYTE como una armadura, un código de cuatro letras, creyendo que la ciencia fría la salvaría.\"",
+      "pruebas": {
+        "1": {
+          "id": 1,
+          "nombre": "Trivia: El Fracaso Numérico",
+          "descripcion": "Cifre la edad del abandono con la clave MURCIÉLAGO.",
+          "tipo": "LOGICA",
+          "respuesta": "RG",
+          "pistas": [
+            "Análisis: \"Se requiere la cifra que corresponde a la edad.\"",
+            "Caos: \"¡Es el doble de la 'media docena de fallos' que cometió!\""
+          ]
+        },
+        "2": {
+          "id": 2,
+          "nombre": "El Lugar del Silencio",
+          "descripcion": "La memoria evoca el nombre del origen académico de Neura.",
+          "tipo": "RECUERDO",
+          "respuesta": "ALPHASIA",
+          "pistas": [
+            "Análisis: \"Es la única universidad mencionada. La primera de la historia.\"",
+            "Caos: \"¡Las últimas tres letras son como la cantante!\""
+          ]
+        },
+        "3": {
+          "id": 3,
+          "nombre": "Crisis de CONTROL",
+          "descripcion": "“¡El CONTROL falla!” Diga cuántas letras tiene la palabra CONTROL.",
+          "tipo": "CAOS",
+          "respuesta": "7",
+          "pistas": [
+            "Análisis: \"¡La palabra que empieza con c!.\"",
+            "Caos: \"¡’Mi furia’ tiene tantas letras como la respuesta!\""
+          ]
+        },
+        "4": {
+          "id": 4,
+          "nombre": "El Apellido Añadido",
+          "descripcion": "Completa: “Neura__”.",
+          "tipo": "NOSTALGIA",
+          "respuesta": "BYTE",
+          "pistas": [
+            "Análisis: \"La palabra añadida representan 8bits.\"",
+            "Caos: \"¡Es la unidad binaria de la desilusión!\""
+          ]
+        }
+      }
+    },
+    "2": {
+      "id": 2,
+      "nombre": "Nivel 2: El Sistema Límbico - La Emoción Pura",
+      "historia": "📖 Historia Clave (Voz: Nostalgia)\n\"Recuerdo la tesis de la Neurociencia Cognitiva a los 22. Mi yo original era Altruista, la primera víctima, regida por un deseo de dar sin esperar nada. La clave CÉSAR (+2) guarda el dolor. Yo estaba fascinada con la Vitamina B y sus complejos; fue la base para el N-B12. Análisis me convenció de que la empatía era una variable incontrolable. El Altruista murió la noche que elegimos la química fría sobre la calidez humana, creyendo que una solución de dos pasos sería suficiente.\"",
+      "pruebas": {
+        "1": {
+          "id": 1,
+          "nombre": "El Rasgo Codificado",
+          "descripcion": "Codifique ALTRUISTA con cifrado César +2.",
+          "tipo": "LOGICA",
+          "respuesta": "CNVTWKUV C",
+          "pistas": [
+            "Análisis: \"Avanza 2 posiciones para cada letra.\"",
+            "Caos: \"¡No mires el rasgo, mira el código! ¡Aplica la regla de 2!\""
+          ]
+        },
+        "2": {
+          "id": 2,
+          "nombre": "La Fórmula Mutilada",
+          "descripcion": "Recuerda el nombre de la sustancia que lo comenzó todo.",
+          "tipo": "RECUERDO",
+          "respuesta": "N-B12",
+          "pistas": [
+            "Análisis: \"El texto menciona la sustancia explícitamente.\"",
+            "Caos: \"¡El número que siempre repite es 12!\""
+          ]
+        },
+        "3": {
+          "id": 3,
+          "nombre": "Crisis de Identidad",
+          "descripcion": "Cantidad de palabras en el nombre de la disciplina fallida.",
+          "tipo": "CAOS",
+          "respuesta": "2",
+          "pistas": [
+            "Análisis: \"La disciplina es Neurociencia Cognitiva.\"",
+            "Caos: \"¡Rápido! ¡Es un número menor que tres!\""
+          ]
+        },
+        "4": {
+          "id": 4,
+          "nombre": "El Joven Error",
+          "descripcion": "Cifra la edad 22 con la clave MURCIÉLAGO.",
+          "tipo": "NOSTALGIA",
+          "respuesta": "RR",
+          "pistas": [
+            "Análisis: \"La edad es 22 (dos veces R).\"",
+            "Caos: \"¡Es la cifra del primer desengaño codificada!\""
+          ]
+        }
+      }
+    },
+    "3": {
+      "id": 3,
+      "nombre": "Nivel 3: El Cerebelo - La Falla Coordinada",
+      "historia": "📖 Historia Clave (Voz: Nostalgia)\n\"Aquí nació Caos, como reacción violenta al Control impuesto por Análisis. La clave de transposición es NEURA. La Original era una ingenua PERFECCIONISTA que lo medía todo. Ella cifró su rasgo, CRICPEOOFETNS, en un intento desesperado por controlarlo. Análisis nos obligó a reprimir, en orden, lo que nos hacía sentir humanos: Culpa, Vergüenza, Miedo. Su nombre, NEURA, que es su apellido original, lo usó como código de cinco letras para cifrar su obsesión, el último vestigio de orden que le quedaba.\"",
+      "pruebas": {
+        "1": {
+          "id": 1,
+          "nombre": "El Rasgo Desordenado",
+          "descripcion": "Decodifica la versión transpuesta del rasgo.",
+          "tipo": "LOGICA",
+          "respuesta": "EN-ECSPCIFOARIT",
+          "pistas": [
+            "Análisis: \"Aplica la transposición por clave.\"",
+            "Caos: \"¡Es la palabra más larga y aburrida! ¡Ponla en el código de 5!\""
+          ]
+        },
+        "2": {
+          "id": 2,
+          "nombre": "El Orden de la Represión",
+          "descripcion": "Identifique las emociones reprimidas.",
+          "tipo": "RECUERDO",
+          "respuesta": "CULPA, VERGÜENZA, MIEDO",
+          "pistas": [
+            "Análisis: \"La secuencia está explícita en el texto.\"",
+            "Caos: \"¡Son los tres fallos básicos del ser!\""
+          ]
+        },
+        "3": {
+          "id": 3,
+          "nombre": "Crisis de Orden",
+          "descripcion": "Cantidad de letras de la clave NEURA.",
+          "tipo": "CAOS",
+          "respuesta": "5",
+          "pistas": [
+            "Análisis: \"La clave de transposición es NEURA.\"",
+            "Caos: \"¡Cuenta las letras!\""
+          ]
+        },
+        "4": {
+          "id": 4,
+          "nombre": "El Apellido del Saber",
+          "descripcion": "Recupera el apellido original.",
+          "tipo": "NOSTALGIA",
+          "respuesta": "NEURA",
+          "pistas": [
+            "Análisis: \"Es la clave de este nivel.\"",
+            "Caos: \"¡El nombre que más odia Rebeldía!\""
+          ]
+        }
+      }
+    },
+    "4": {
+      "id": 4,
+      "nombre": "Nivel 4: El Córtex - La Fusión",
+      "historia": "📖 Fragmento Clave (Voz: Nostalgia)\n\"Aquí está el portal. Solo queda una cosa por hacer: nombrar su esencia. Si el nombre es correcto, si su rasgo de servicio desinteresado y su obsesión por la exactitud se unen, ella volverá. Es su última oportunidad de sanar.\"",
+      "pruebas": {
+        "1": {
+          "id": 1,
+          "nombre": "Consolidación",
+          "descripcion": "Une Nombre + Altruismo + Exactitud sin espacios.",
+          "tipo": "FINAL",
+          "respuesta": "NEURAALTRUISTAPERFECCIONISTA",
+          "pistas": [
+            "Análisis: \"Une las tres claves maestras de los niveles: N3, N2, N3.\"",
+            "Caos: \"¡NO DEJES ESPACIOS! ¡Es una sola palabra!\""
+          ]
+        }
+      }
+    }
+  }
+}
