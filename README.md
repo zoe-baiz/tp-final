@@ -1,5 +1,5 @@
 # tp-final
-
+https://lucid.app/lucidchart/4916e674-ba1c-4f4a-9049-7ddb562b5a46/edit?viewport_loc=-1662%2C-1712%2C9244%2C4806%2C0_0&invitationId=inv_9b53f36c-2881-429d-995d-50e6de584e21
 Menu
 clase que podria tener estas opciones
 Iniciar Sesion o Cargar partida
